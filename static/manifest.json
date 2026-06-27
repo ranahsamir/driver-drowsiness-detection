@@ -1,0 +1,15 @@
+{
+  "name": "AI Guardian DMS",
+  "short_name": "DMS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#00f2ff",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

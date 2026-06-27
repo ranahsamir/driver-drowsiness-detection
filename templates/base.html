@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Without zoom  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Hide the ip bar for IOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI Guardian">
+
+    <!-- Settings for Android -->
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>AI Guardian DMS</title>
+
+    <!-- external links for manifest file and for logo -->
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="apple-touch-icon" href="/static/logo.png">
+
+    <style>
+        :root { --bg: #0d0d0d; --card: #1a1a1a; --neon: #00f2ff; --danger: #ff0055; --success: #00ff88; }
+        body {
+            background: var(--bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
+            /* no scroll down for application look */
+            overscroll-behavior-y: contain;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background: var(--card);
+            padding: 15px;
+            gap: 25px;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-bar a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-bar a.active { color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+        .container { width: 90%; max-width: 500px; margin: 20px auto; }
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--neon);
+            text-transform: uppercase;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        .btn {
+            background: var(--neon);
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="/" class="{{ 'active' if active_page == 'home' }}">Monitor</a>
+        <a href="/history" class="{{ 'active' if active_page == 'history' }}">History</a>
+        <a href="/settings" class="{{ 'active' if active_page == 'settings' }}">Settings</a>
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

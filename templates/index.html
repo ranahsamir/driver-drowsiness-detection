@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Live Monitoring</h1>
+<div class="card" style="padding: 10px;">
+    <img src="/video" style="width: 100%; border-radius: 12px; display: block;">
+</div>
+<div id="status-badge" class="card" style="text-align: center; font-weight: bold; font-size: 1.2rem; border-color: var(--success); color: var(--success);">
+    🛡️ DRIVER ACTIVE
+</div>
+<script>
+    setInterval(() => {
+        fetch('/status').then(res => res.json()).then(data => {
+            const badge = document.getElementById("status-badge");
+            if(data.state === '1') {
+                badge.innerText = "😴 DROWSY ALERT";
+                badge.style.color = "var(--danger)";
+                badge.style.borderColor = "var(--danger)";
+                badge.style.boxShadow = "0 0 15px rgba(255, 0, 85, 0.3)";
+            } else {
+                badge.innerText = "🛡️ DRIVER ACTIVE";
+                badge.style.color = "var(--success)";
+                badge.style.borderColor = "var(--success)";
+                badge.style.boxShadow = "none";
+            }
+        });
+    }, 1000);
+</script>
+{% endblock %}
+

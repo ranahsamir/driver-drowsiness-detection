@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>System Settings</h1>
+<div class="card">
+    <form method="POST">
+        <label style="color: #888; font-size: 0.8rem;">EAR THRESHOLD (Sensitivity)</label>
+        <input type="number" name="threshold" step="0.01" value="{{ threshold }}"
+               style="width:100%; background:#222; border:1px solid #444; color:var(--neon); padding:12px; margin:15px 0; border-radius:10px; box-sizing: border-box;">
+        <button type="submit" class="btn">UPDATE CONFIG</button>
+    </form>
+</div>
+<p style="font-size: 0.7rem; color: #555; text-align: center;">Recommended: 0.20 - 0.26</p>
+{% endblock %}

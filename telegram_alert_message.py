@@ -1,8 +1,8 @@
 import requests
 from datetime import datetime
 
-TOKEN = "8283674712:AAHSHouPYyp8EeMbKIVdGRQV0j4IHEED8T4"
-CHAT_ID = "996997047"
+TOKEN = "00000000000000"
+CHAT_ID = "0000000"
 
 def send_drowsiness_alert():
 
